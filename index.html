@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tennis Court Reservations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Court Booking</p>
+          <h1>Reserve a tennis court in a minute.</h1>
+          <p class="hero-text">
+            Pick a date, start time, and duration. The app automatically assigns
+            the first available court and blocks overlapping bookings.
+          </p>
+        </div>
+        <div class="hero-stat">
+          <span>Available courts</span>
+          <strong>2</strong>
+          <small>Maximum session: 90 minutes</small>
+        </div>
+      </section>
+
+      <section class="panel booking-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">New Reservation</p>
+            <h2>Book a court</h2>
+          </div>
+        </div>
+
+        <form id="booking-form" class="booking-form" novalidate>
+          <label>
+            <span>Name</span>
+            <input id="name" name="name" type="text" placeholder="Jordan Lee" required />
+          </label>
+
+          <label>
+            <span>Date</span>
+            <input id="date" name="date" type="date" required />
+          </label>
+
+          <label>
+            <span>Start time</span>
+            <input id="startTime" name="startTime" type="time" required />
+          </label>
+
+          <label>
+            <span>Duration (minutes)</span>
+            <input
+              id="duration"
+              name="duration"
+              type="number"
+              min="30"
+              max="90"
+              step="15"
+              value="60"
+              required
+            />
+          </label>
+
+          <button type="submit">Reserve Court</button>
+        </form>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+      </section>
+
+      <section class="panel reservations-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Schedule</p>
+            <h2>Current reservations</h2>
+          </div>
+        </div>
+
+        <div class="courts-grid">
+          <article class="court-column">
+            <div class="court-header">
+              <h3>Court 1</h3>
+              <span id="court-1-count" class="count-pill">0 bookings</span>
+            </div>
+            <div id="court-1-list" class="reservation-list"></div>
+          </article>
+
+          <article class="court-column">
+            <div class="court-header">
+              <h3>Court 2</h3>
+              <span id="court-2-count" class="count-pill">0 bookings</span>
+            </div>
+            <div id="court-2-list" class="reservation-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
